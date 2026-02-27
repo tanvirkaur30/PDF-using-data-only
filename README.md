@@ -24,16 +24,14 @@ The dataset contains real-world pollution measurements collected across various 
 
 ## 3. Mathematical Transformation
 
-The original variable \( x \) is transformed into a new variable \( z \) using:
+The original variable x is transformed into a new variable z using:
 
-\[
-z = x + a_r \cdot \sin(b_r \cdot x)
-\]
+z = x + a_r * sin(b_r * x)
 
 Where:
-- Roll Number \( r = 102303389 \)
-- \( a_r = 3.0 \)
-- \( b_r = 1.5 \)
+- Roll Number r = 102303389
+- a_r = 3.0
+- b_r = 1.5
 
 ### Interpretation
 
@@ -41,7 +39,7 @@ Where:
 - This results in:
   - Distortion of the original distribution  
   - Creation of local fluctuations and irregular density regions  
-- The transformed variable \( z \) becomes **harder to model using standard distributions**
+- The transformed variable z becomes **harder to model using standard distributions**
 
 ---
 
@@ -56,10 +54,7 @@ The following preprocessing steps were applied:
    - Selected only the `no2` column
 
 3. **Normalization**
-   - Standardized data using:
-     \[
-     x' = \frac{x - \mu}{\sigma}
-     \]
+   x' = (x - mu) / sigma
    - This ensures:
      - Faster convergence  
      - Stable GAN training  
@@ -72,7 +67,7 @@ A basic GAN architecture is implemented using PyTorch.
 
 ### 5.1 Generator Network
 
-- Input: 1D Gaussian noise \( z \sim N(0,1) \)
+- Input: 1D Gaussian noise z ~ N(0,1)
 - Architecture:
   - Linear (1 → 16)
   - ReLU activation
